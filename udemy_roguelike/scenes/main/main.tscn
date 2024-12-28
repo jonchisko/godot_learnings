@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bgq5rdra2wrmg"]
+[gd_scene load_steps=5 format=3 uid="uid://bgq5rdra2wrmg"]
 
 [ext_resource type="TileSet" uid="uid://ccv70tjpvvlaf" path="res://udemy_roguelike/resources/tileset.tres" id="1_jhd74"]
 [ext_resource type="PackedScene" uid="uid://by42x3jgwscqn" path="res://udemy_roguelike/scenes/player/player.tscn" id="1_p0nxv"]
 [ext_resource type="PackedScene" uid="uid://r5bc62vlaflc" path="res://udemy_roguelike/scenes/game_camera/game_camera.tscn" id="3_igdsc"]
+[ext_resource type="PackedScene" uid="uid://45lmtb5aqfqh" path="res://udemy_roguelike/scenes/basic_enemy/basic_enemy.tscn" id="3_ngc1n"]
 
 [node name="Main" type="Node"]
 
@@ -13,5 +14,8 @@ layer_0/tile_data = PackedInt32Array(131074, 393216, 3, 131075, 0, 4, 131076, 0,
 
 [node name="player" parent="." instance=ExtResource("1_p0nxv")]
 position = Vector2(28, 33)
+
+[node name="BasicEnemy" parent="." instance=ExtResource("3_ngc1n")]
+position = Vector2(296, 173)
 
 [node name="GameCamera" parent="." instance=ExtResource("3_igdsc")]
