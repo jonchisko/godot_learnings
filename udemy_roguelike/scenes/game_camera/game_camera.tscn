@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://r5bc62vlaflc"]
+
+[ext_resource type="Script" path="res://udemy_roguelike/scenes/game_camera/game_camera.gd" id="1_cj1ww"]
+
+[node name="GameCamera" type="Camera2D"]
+script = ExtResource("1_cj1ww")
