@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
-
-const MAX_SPEED = 75
+const MAX_SPEED = 50
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,4 +23,3 @@ func get_direction_to_player():
 			return Vector2.ZERO
 		return vector.normalized()
 	return Vector2.ZERO
-	

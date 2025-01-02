@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwmgwbjdr16qk"]
+
+[ext_resource type="Script" path="res://udemy_roguelike/scenes/component/health_component.gd" id="1_lurb3"]
+
+[node name="HealthComponent" type="Node"]
+script = ExtResource("1_lurb3")

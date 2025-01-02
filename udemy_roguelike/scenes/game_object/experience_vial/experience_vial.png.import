@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyab5rk18trwt"
-path="res://.godot/imported/basic_enemy.png-0d59bfae1733112b38237ef5731cbeca.ctex"
+uid="uid://qiqn70k101g7"
+path="res://.godot/imported/experience_vial.png-6ca2c201cf9c00154e72f885a991e121.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://udemy_roguelike/scenes/basic_enemy/basic_enemy.png"
-dest_files=["res://.godot/imported/basic_enemy.png-0d59bfae1733112b38237ef5731cbeca.ctex"]
+source_file="res://udemy_roguelike/scenes/game_object/experience_vial/experience_vial.png"
+dest_files=["res://.godot/imported/experience_vial.png-6ca2c201cf9c00154e72f885a991e121.ctex"]
 
 [params]
 

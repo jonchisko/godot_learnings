@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://y2fkrq150y21"
-path="res://.godot/imported/player.png-fda54e17585b5050344de85904295a67.ctex"
+path="res://.godot/imported/player.png-141cd8148ddcdec90dfbcf7efa8c5364.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://udemy_roguelike/scenes/player/player.png"
-dest_files=["res://.godot/imported/player.png-fda54e17585b5050344de85904295a67.ctex"]
+source_file="res://udemy_roguelike/scenes/game_object/player/player.png"
+dest_files=["res://.godot/imported/player.png-141cd8148ddcdec90dfbcf7efa8c5364.ctex"]
 
 [params]
 

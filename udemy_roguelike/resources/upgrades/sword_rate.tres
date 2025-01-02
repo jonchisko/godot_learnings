@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://ctykvpgp0jdd6"]
+
+[ext_resource type="Script" path="res://udemy_roguelike/resources/upgrades/ability_upgrade.gd" id="1_yegdc"]
+
+[resource]
+script = ExtResource("1_yegdc")
+id = "sword_rate"
+name = "Sword Attack Speed"
+description = "Increases sword attack "

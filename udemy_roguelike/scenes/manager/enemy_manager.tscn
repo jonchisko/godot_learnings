@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnx3h4y3sf3se"]
+
+[ext_resource type="Script" path="res://udemy_roguelike/scenes/manager/enemy_manager.gd" id="1_odca3"]
+[ext_resource type="PackedScene" uid="uid://45lmtb5aqfqh" path="res://udemy_roguelike/scenes/game_object/basic_enemy/basic_enemy.tscn" id="2_dnoxn"]
+
+[node name="EnemyManager" type="Node"]
+script = ExtResource("1_odca3")
+basic_enemy_scene = ExtResource("2_dnoxn")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://by42x3jgwscqn"]
+
+[ext_resource type="Texture2D" uid="uid://y2fkrq150y21" path="res://udemy_roguelike/scenes/game_object/player/player.png" id="1_amds2"]
+[ext_resource type="Script" path="res://udemy_roguelike/scenes/game_object/player/player.gd" id="1_luh4f"]
+[ext_resource type="PackedScene" uid="uid://cha47xw4u0yw5" path="res://udemy_roguelike/scenes/ability/sword_ability_controller/sword_ability_controller.tscn" id="2_l6v6i"]
+[ext_resource type="PackedScene" uid="uid://dwmgwbjdr16qk" path="res://udemy_roguelike/scenes/component/health_component.tscn" id="2_upqnx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sk7in"]
+radius = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_41jao"]
+radius = 7.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ds2es"]
+radius = 5.0
+
+[node name="player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 0
+motion_mode = 1
+script = ExtResource("1_luh4f")
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_upqnx")]
+
+[node name="AbilityManager" type="Node" parent="."]
+
+[node name="SwordAbilityController" parent="AbilityManager" instance=ExtResource("2_l6v6i")]
+
+[node name="DamageIntervalTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="PickupArea2D" type="Area2D" parent="."]
+position = Vector2(0, -5)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea2D"]
+shape = SubResource("CircleShape2D_sk7in")
+
+[node name="CollisionArea2D" type="Area2D" parent="."]
+position = Vector2(0, -7)
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea2D"]
+shape = SubResource("CircleShape2D_41jao")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_amds2")
+offset = Vector2(0, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_ds2es")
+
+[connection signal="timeout" from="DamageIntervalTimer" to="." method="_on_damage_interval_timer_timeout"]
+[connection signal="body_entered" from="CollisionArea2D" to="." method="_on_collision_area_2d_body_entered"]
+[connection signal="body_exited" from="CollisionArea2D" to="." method="_on_collision_area_2d_body_exited"]
