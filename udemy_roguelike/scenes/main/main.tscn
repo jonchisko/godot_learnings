@@ -1,17 +1,21 @@
-[gd_scene load_steps=11 format=3 uid="uid://bgq5rdra2wrmg"]
+[gd_scene load_steps=13 format=3 uid="uid://bgq5rdra2wrmg"]
 
 [ext_resource type="PackedScene" uid="uid://dnx3h4y3sf3se" path="res://udemy_roguelike/scenes/manager/enemy_manager.tscn" id="1_44205"]
 [ext_resource type="TileSet" uid="uid://ccv70tjpvvlaf" path="res://udemy_roguelike/resources/tileset.tres" id="1_jhd74"]
 [ext_resource type="PackedScene" uid="uid://15v8ucdw0cfk" path="res://udemy_roguelike/scenes/ui/arena_time_ui.tscn" id="1_nc7bp"]
 [ext_resource type="PackedScene" uid="uid://by42x3jgwscqn" path="res://udemy_roguelike/scenes/game_object/player/player.tscn" id="1_p0nxv"]
+[ext_resource type="Script" path="res://udemy_roguelike/scenes/main/main.gd" id="1_q08x1"]
 [ext_resource type="PackedScene" uid="uid://dh2d7nj3qxau6" path="res://udemy_roguelike/scenes/manager/arena_time_manager.tscn" id="2_8404y"]
 [ext_resource type="PackedScene" uid="uid://deru416ovh5f4" path="res://udemy_roguelike/scenes/ui/experience_bar.tscn" id="2_ghnrb"]
+[ext_resource type="PackedScene" uid="uid://cr1cd0p1cqwnk" path="res://udemy_roguelike/scenes/ui/end_screen.tscn" id="2_rctb4"]
 [ext_resource type="PackedScene" uid="uid://r5bc62vlaflc" path="res://udemy_roguelike/scenes/game_object/game_camera/game_camera.tscn" id="3_igdsc"]
 [ext_resource type="PackedScene" uid="uid://c12m7dx7qe2dk" path="res://udemy_roguelike/scenes/manager/experience_manager.tscn" id="4_pa1kc"]
 [ext_resource type="PackedScene" uid="uid://brg7r1hcxgyci" path="res://udemy_roguelike/scenes/manager/upgrade_manager.tscn" id="6_i0rr7"]
 [ext_resource type="PackedScene" uid="uid://cnj08465sdfmi" path="res://udemy_roguelike/scenes/game_object/experience_vial/experience_vial.tscn" id="7_echla"]
 
 [node name="Main" type="Node"]
+script = ExtResource("1_q08x1")
+end_screen_scene = ExtResource("2_rctb4")
 
 [node name="ArenaTimeUi" parent="." node_paths=PackedStringArray("arena_time_manager") instance=ExtResource("1_nc7bp")]
 arena_time_manager = NodePath("../ArenaTimeManager")
@@ -39,6 +43,7 @@ layer_0/tile_data = PackedInt32Array(131074, 393216, 3, 131075, 0, 4, 131076, 0,
 y_sort_enabled = true
 
 [node name="player" parent="Entites" instance=ExtResource("1_p0nxv")]
+unique_name_in_owner = true
 position = Vector2(28, 33)
 
 [node name="ExperienceVial" parent="Entites" instance=ExtResource("7_echla")]
