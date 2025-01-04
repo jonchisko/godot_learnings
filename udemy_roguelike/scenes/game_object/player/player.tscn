@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://by42x3jgwscqn"]
+[gd_scene load_steps=11 format=3 uid="uid://by42x3jgwscqn"]
 
 [ext_resource type="Texture2D" uid="uid://y2fkrq150y21" path="res://udemy_roguelike/scenes/game_object/player/player.png" id="1_amds2"]
 [ext_resource type="Script" path="res://udemy_roguelike/scenes/game_object/player/player.gd" id="1_luh4f"]
 [ext_resource type="PackedScene" uid="uid://cha47xw4u0yw5" path="res://udemy_roguelike/scenes/ability/sword_ability_controller/sword_ability_controller.tscn" id="2_l6v6i"]
 [ext_resource type="PackedScene" uid="uid://dwmgwbjdr16qk" path="res://udemy_roguelike/scenes/component/health_component.tscn" id="2_upqnx"]
+[ext_resource type="PackedScene" uid="uid://1y4aa4dt7ja7" path="res://udemy_roguelike/scenes/ability/axe_ability_controller/axe_ability_controller.tscn" id="4_uwlhc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_22gds"]
 bg_color = Color(0.247059, 0.14902, 0.192157, 1)
@@ -35,6 +36,8 @@ script = ExtResource("1_luh4f")
 [node name="AbilityManager" type="Node" parent="."]
 
 [node name="SwordAbilityController" parent="AbilityManager" instance=ExtResource("2_l6v6i")]
+
+[node name="AxeAbilityController" parent="AbilityManager" instance=ExtResource("4_uwlhc")]
 
 [node name="DamageIntervalTimer" type="Timer" parent="."]
 wait_time = 0.5
