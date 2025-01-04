@@ -10,17 +10,6 @@ var current_upgrades = {}
 func _ready():
 	self.experience_manager.level_up.connect(self._on_leveled_up)
 	
-	
-func _on_leveled_up(current_level: int):
-	var chosen_upgrade = self.upgrade_pool.pick_random()
-	if chosen_upgrade == null:
-		return
-	
-	var upgrade_screen_instance = self.upgrade_screen_scene.instantiate()
-	self.add_child(upgrade_screen_instance)
-	upgrade_screen_instance.set_ability_upgrades([chosen_upgrade] as Array[AbilityUpgrade])
-	upgrade_screen_instance.upgrade_selected.connect(self._on_upgrade_selected)
-
 
 func apply_upgrade(upgrade: AbilityUpgrade):
 	var has_upgrade = self.current_upgrades.has(upgrade.id)
@@ -37,5 +26,28 @@ func apply_upgrade(upgrade: AbilityUpgrade):
 	print(self.current_upgrades)
 
 
+func pick_upgrades():
+	var chosen_upgrades: Array[AbilityUpgrade] = []
+	var filtered_upgrades = self.upgrade_pool.duplicate()
+	for i in 2:
+		var chosen_upgrade = filtered_upgrades.pick_random()
+		chosen_upgrades.append(chosen_upgrade)
+		filtered_upgrades = filtered_upgrades.filter(func (upgrade):
+			return upgrade.id != chosen_upgrade.id
+		)
+	
+	return chosen_upgrades
+
+
 func _on_upgrade_selected(upgrade: AbilityUpgrade):
 	self.apply_upgrade(upgrade)
+
+
+func _on_leveled_up(current_level: int):
+	var upgrade_screen_instance = self.upgrade_screen_scene.instantiate()
+	self.add_child(upgrade_screen_instance)
+	
+	var chosen_upgrades = self.pick_upgrades()
+	
+	upgrade_screen_instance.set_ability_upgrades(chosen_upgrades as Array[AbilityUpgrade])
+	upgrade_screen_instance.upgrade_selected.connect(self._on_upgrade_selected)

@@ -3,6 +3,8 @@ extends CharacterBody2D
 @onready var damage_interval_timer = $DamageIntervalTimer
 @onready var health_component = $HealthComponent
 @onready var health_bar = $HealthBar
+@onready var abilities = $Abilities
+
 
 
 const MAX_SPEED = 150
@@ -12,6 +14,7 @@ var number_colliding_bodies = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	GameEvents.ability_upgrade_added.connect(self._on_ability_upgrade_added)
 	self.update_health_display()
 
 
@@ -59,3 +62,10 @@ func _on_damage_interval_timer_timeout():
 
 func _on_health_component_health_changed():
 	self.update_health_display()
+
+
+func _on_ability_upgrade_added(ability_upgrade: AbilityUpgrade, _current_upgrades: Dictionary):
+	if ability_upgrade is Ability:
+		var ability_instance = (ability_upgrade as Ability).ability_controller_scene.instantiate()
+		self.abilities.add_child(ability_instance)
+		
