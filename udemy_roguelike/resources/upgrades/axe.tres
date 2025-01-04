@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://d2fwk7ptnn8er"]
+[gd_resource type="Resource" script_class="Ability" load_steps=3 format=3 uid="uid://d2fwk7ptnn8er"]
 
 [ext_resource type="Script" path="res://udemy_roguelike/resources/upgrades/ability.gd" id="1_b25av"]
 [ext_resource type="PackedScene" uid="uid://1y4aa4dt7ja7" path="res://udemy_roguelike/scenes/ability/axe_ability_controller/axe_ability_controller.tscn" id="1_oajk6"]
@@ -7,5 +7,6 @@
 script = ExtResource("1_b25av")
 ability_controller_scene = ExtResource("1_oajk6")
 id = "axe"
+max_quantity = 1
 name = "Axe"
 description = "Periodically sends out a spinning axe."
