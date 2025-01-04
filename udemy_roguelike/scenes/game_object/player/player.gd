@@ -4,6 +4,8 @@ extends CharacterBody2D
 @onready var health_component = $HealthComponent
 @onready var health_bar = $HealthBar
 @onready var abilities = $Abilities
+@onready var animation_player = $AnimationPlayer
+@onready var visuals = $Visuals
 
 
 
@@ -27,6 +29,15 @@ func _process(delta):
 	velocity = velocity.lerp(target_velocity, 1 - exp(-delta * ACCELERATION_SMOOTHING))
 	
 	move_and_slide()
+	
+	if movement_vector.x != 0 or movement_vector.y != 0:
+		self.animation_player.play("walk")
+	else:
+		self.animation_player.play("RESET")
+	
+	var move_sign = sign(movement_vector.x)
+	if move_sign != 0:
+		self.visuals.scale = Vector2(move_sign, 1)
 	
 
 func get_movement_vector() -> Vector2:
