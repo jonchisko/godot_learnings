@@ -2,6 +2,9 @@ extends CharacterBody2D
 
 const MAX_SPEED = 50
 
+@onready var animation_player = $AnimationPlayer
+@onready var visuals = $Visuals
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -12,6 +15,10 @@ func _process(delta):
 	var direction = self.get_direction_to_player()
 	velocity = direction * MAX_SPEED
 	move_and_slide()
+	
+	var move_sign = sign(velocity.x)
+	if move_sign != 0:
+		self.visuals.scale = Vector2(-move_sign, 1)
 
 
 func get_direction_to_player():
