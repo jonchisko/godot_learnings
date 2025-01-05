@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dnx3h4y3sf3se"]
+[gd_scene load_steps=4 format=3 uid="uid://dnx3h4y3sf3se"]
 
 [ext_resource type="Script" path="res://udemy_roguelike/scenes/manager/enemy_manager.gd" id="1_odca3"]
 [ext_resource type="PackedScene" uid="uid://45lmtb5aqfqh" path="res://udemy_roguelike/scenes/game_object/basic_enemy/basic_enemy.tscn" id="2_dnoxn"]
+[ext_resource type="PackedScene" uid="uid://3sb5sjm4or5t" path="res://udemy_roguelike/scenes/game_object/wizard_enemy/wizard_enemy.tscn" id="3_g4ems"]
 
 [node name="EnemyManager" type="Node"]
 script = ExtResource("1_odca3")
 basic_enemy_scene = ExtResource("2_dnoxn")
+wizard_enemy_scene = ExtResource("3_g4ems")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
