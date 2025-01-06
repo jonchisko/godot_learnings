@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://teoufsl3oe7t"]
+
+[ext_resource type="FontFile" uid="uid://cxgh6bo2k3er3" path="res://udemy_roguelike/resources/theme/Rockboxcond12.ttf" id="1_5yeaq"]
+
+[resource]
+default_font = ExtResource("1_5yeaq")
+default_font_size = 16
