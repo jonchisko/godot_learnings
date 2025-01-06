@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://3sb5sjm4or5t"]
+[gd_scene load_steps=16 format=3 uid="uid://3sb5sjm4or5t"]
 
 [ext_resource type="Texture2D" uid="uid://b1xgf2jbab4bn" path="res://udemy_roguelike/scenes/game_object/wizard_enemy/wizard_enemy.png" id="1_6clqo"]
 [ext_resource type="PackedScene" uid="uid://dwmgwbjdr16qk" path="res://udemy_roguelike/scenes/component/health_component.tscn" id="1_7e7gj"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://4gny32h0pdlb" path="res://udemy_roguelike/scenes/component/death_component.tscn" id="2_45q6i"]
 [ext_resource type="PackedScene" uid="uid://cuq4aep756bqb" path="res://udemy_roguelike/scenes/component/vial_drop_component.tscn" id="3_evs4d"]
 [ext_resource type="PackedScene" uid="uid://d24tey5tqbllr" path="res://udemy_roguelike/scenes/component/hurt_box_component.tscn" id="4_ku6qf"]
+[ext_resource type="PackedScene" uid="uid://cuegkaheyks57" path="res://udemy_roguelike/scenes/component/hit_flash_component.tscn" id="5_iby2n"]
+[ext_resource type="Shader" path="res://udemy_roguelike/scenes/component/hit_flash_component.gdshader" id="6_ofqqu"]
 
 [sub_resource type="Animation" id="Animation_qba2t"]
 length = 0.001
@@ -112,6 +114,11 @@ _data = {
 "walk": SubResource("Animation_giwfr")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f7b4d"]
+resource_local_to_scene = true
+shader = ExtResource("6_ofqqu")
+shader_parameter/lerp_percent = 0.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_w8evd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h1pr0"]
@@ -138,6 +145,11 @@ health_component = NodePath("../HealthComponent")
 [node name="VelocityComponent" parent="." instance=ExtResource("2_1a1sv")]
 max_speed = 60
 acceleration = 20.0
+
+[node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("5_iby2n")]
+health_component = NodePath("../HealthComponent")
+sprite = NodePath("../Visuals/Sprite2D")
+hit_flash_material = SubResource("ShaderMaterial_f7b4d")
 
 [node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("2_45q6i")]
 health_component = NodePath("../HealthComponent")

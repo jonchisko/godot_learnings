@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuegkaheyks57"]
+
+[ext_resource type="Script" path="res://udemy_roguelike/scenes/component/hit_flash_component.gd" id="1_82xh6"]
+[ext_resource type="Material" uid="uid://dkcbnxu0xisss" path="res://udemy_roguelike/scenes/component/hit_flash_component_material.tres" id="2_v8cnv"]
+
+[node name="HitFlashComponent" type="Node"]
+script = ExtResource("1_82xh6")
+hit_flash_material = ExtResource("2_v8cnv")

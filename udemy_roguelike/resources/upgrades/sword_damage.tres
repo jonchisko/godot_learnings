@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://bo4oj7wi7hqok"]
+
+[ext_resource type="Script" path="res://udemy_roguelike/resources/upgrades/ability_upgrade.gd" id="1_kf17n"]
+
+[resource]
+script = ExtResource("1_kf17n")
+id = "sword_damage"
+max_quantity = 0
+name = "Sword Attack Damage"
+description = "Increases sword damage by 15%."

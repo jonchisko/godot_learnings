@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dkcbnxu0xisss"]
+
+[ext_resource type="Shader" path="res://udemy_roguelike/scenes/component/hit_flash_component.gdshader" id="1_la04f"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_la04f")
+shader_parameter/lerp_percent = 0.0
