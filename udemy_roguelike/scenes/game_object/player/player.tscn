@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://by42x3jgwscqn"]
+[gd_scene load_steps=12 format=3 uid="uid://by42x3jgwscqn"]
 
 [ext_resource type="Texture2D" uid="uid://y2fkrq150y21" path="res://udemy_roguelike/scenes/game_object/player/player.png" id="1_amds2"]
 [ext_resource type="Script" path="res://udemy_roguelike/scenes/game_object/player/player.gd" id="1_luh4f"]
+[ext_resource type="PackedScene" uid="uid://c3yfcwhtvn18i" path="res://udemy_roguelike/scenes/component/velocity_component.tscn" id="2_4e5gd"]
 [ext_resource type="PackedScene" uid="uid://cha47xw4u0yw5" path="res://udemy_roguelike/scenes/ability/sword_ability_controller/sword_ability_controller.tscn" id="2_l6v6i"]
 [ext_resource type="PackedScene" uid="uid://dwmgwbjdr16qk" path="res://udemy_roguelike/scenes/component/health_component.tscn" id="2_upqnx"]
 
@@ -110,6 +111,10 @@ libraries = {
 "": SubResource("AnimationLibrary_j3syh")
 }
 autoplay = "walk"
+
+[node name="VelocityComponent" parent="." instance=ExtResource("2_4e5gd")]
+max_speed = 100
+acceleration = 25.0
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_upqnx")]
 

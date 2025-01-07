@@ -11,11 +11,13 @@ var upgrade_axe = preload("res://udemy_roguelike/resources/upgrades/axe.tres")
 var upgrade_axe_damage = preload("res://udemy_roguelike/resources/upgrades/axe_damage.tres")
 var upgrade_sword_rate = preload("res://udemy_roguelike/resources/upgrades/sword_rate.tres")
 var upgrade_sword_damage = preload("res://udemy_roguelike/resources/upgrades/sword_damage.tres")
+var player_speed = preload("res://udemy_roguelike/resources/upgrades/player_speed.tres")
 
 func _ready():
 	self.upgrade_pool.add_item(self.upgrade_axe, 10)
 	self.upgrade_pool.add_item(self.upgrade_sword_rate, 10)
 	self.upgrade_pool.add_item(self.upgrade_sword_damage, 10)
+	self.upgrade_pool.add_item(self.player_speed, 5)
 	
 	self.experience_manager.level_up.connect(self._on_leveled_up)
 	

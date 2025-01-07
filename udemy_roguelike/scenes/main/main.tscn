@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bgq5rdra2wrmg"]
+[gd_scene load_steps=14 format=3 uid="uid://bgq5rdra2wrmg"]
 
 [ext_resource type="PackedScene" uid="uid://dnx3h4y3sf3se" path="res://udemy_roguelike/scenes/manager/enemy_manager.tscn" id="1_44205"]
 [ext_resource type="TileSet" uid="uid://ccv70tjpvvlaf" path="res://udemy_roguelike/resources/tileset.tres" id="1_jhd74"]
@@ -12,10 +12,13 @@
 [ext_resource type="PackedScene" uid="uid://c12m7dx7qe2dk" path="res://udemy_roguelike/scenes/manager/experience_manager.tscn" id="4_pa1kc"]
 [ext_resource type="PackedScene" uid="uid://brg7r1hcxgyci" path="res://udemy_roguelike/scenes/manager/upgrade_manager.tscn" id="6_i0rr7"]
 [ext_resource type="PackedScene" uid="uid://cnj08465sdfmi" path="res://udemy_roguelike/scenes/game_object/experience_vial/experience_vial.tscn" id="7_echla"]
+[ext_resource type="PackedScene" uid="uid://c71b2cxah1ldj" path="res://udemy_roguelike/scenes/ui/vignette.tscn" id="9_82rxn"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_q08x1")
 end_screen_scene = ExtResource("2_rctb4")
+
+[node name="Vignette" parent="." instance=ExtResource("9_82rxn")]
 
 [node name="ArenaTimeUi" parent="." node_paths=PackedStringArray("arena_time_manager") instance=ExtResource("1_nc7bp")]
 arena_time_manager = NodePath("../ArenaTimeManager")

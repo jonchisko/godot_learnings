@@ -6,16 +6,15 @@ extends CharacterBody2D
 @onready var abilities = $Abilities
 @onready var animation_player = $AnimationPlayer
 @onready var visuals = $Visuals
+@onready var velocity_component = $VelocityComponent
 
-
-
-const MAX_SPEED = 150
-const ACCELERATION_SMOOTHING = 25
 
 var number_colliding_bodies = 0
+var base_speed = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	self.base_speed = self.velocity_component.max_speed
 	GameEvents.ability_upgrade_added.connect(self._on_ability_upgrade_added)
 	self.update_health_display()
 
@@ -24,11 +23,8 @@ func _ready():
 func _process(delta):
 	var movement_vector = self.get_movement_vector()
 	var direction = movement_vector.normalized()
-	var target_velocity = direction * MAX_SPEED
-	
-	velocity = velocity.lerp(target_velocity, 1 - exp(-delta * ACCELERATION_SMOOTHING))
-	
-	move_and_slide()
+	self.velocity_component.accelerate_in_direction(direction)
+	self.velocity_component.move(self)
 	
 	if movement_vector.x != 0 or movement_vector.y != 0:
 		self.animation_player.play("walk")
@@ -73,10 +69,13 @@ func _on_damage_interval_timer_timeout():
 
 func _on_health_component_health_changed():
 	self.update_health_display()
+	GameEvents.emit_player_damaged()
 
 
-func _on_ability_upgrade_added(ability_upgrade: AbilityUpgrade, _current_upgrades: Dictionary):
+func _on_ability_upgrade_added(ability_upgrade: AbilityUpgrade, current_upgrades: Dictionary):
 	if ability_upgrade is Ability:
 		var ability_instance = (ability_upgrade as Ability).ability_controller_scene.instantiate()
 		self.abilities.add_child(ability_instance)
+	elif ability_upgrade.id == "player_speed":
+		self.velocity_component.max_speed = self.base_speed + (self.base_speed * current_upgrades["player_speed"]["quantity"] * .1)
 		
