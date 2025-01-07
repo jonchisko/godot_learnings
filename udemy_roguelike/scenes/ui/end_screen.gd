@@ -2,10 +2,17 @@ extends CanvasLayer
 
 @onready var end_screen_title = %EndScreenTitle
 @onready var end_screen_description = %EndScreenDescription
+@onready var panel_container = %PanelContainer
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	self.panel_container.pivot_offset = self.panel_container.size / 2
+	var tween = self.create_tween()
+	tween.tween_property(self.panel_container, "scale", Vector2.ZERO, 0)
+	tween.tween_property(self.panel_container, "scale", Vector2.ONE, .3)\
+		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+	
 	get_tree().paused = true
 
 
