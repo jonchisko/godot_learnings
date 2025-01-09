@@ -1,0 +1,20 @@
+[gd_scene load_steps=8 format=3 uid="uid://b5bt0yoavx7k5"]
+
+[ext_resource type="Script" path="res://udemy_roguelike/scenes/ui/sound_button.gd" id="1_jmii1"]
+[ext_resource type="PackedScene" uid="uid://dd7cfon7e6vqd" path="res://udemy_roguelike/scenes/component/random_stream_player_component.tscn" id="2_1l781"]
+[ext_resource type="AudioStream" uid="uid://cua3s3ty6ejs0" path="res://udemy_roguelike/assets/audio/click1.ogg" id="3_kappv"]
+[ext_resource type="AudioStream" uid="uid://dv2n3ud1qwg3l" path="res://udemy_roguelike/assets/audio/click2.ogg" id="4_a52d7"]
+[ext_resource type="AudioStream" uid="uid://ufo0bwym5g7i" path="res://udemy_roguelike/assets/audio/click3.ogg" id="5_qf7sw"]
+[ext_resource type="AudioStream" uid="uid://cr4l7lcge1o7g" path="res://udemy_roguelike/assets/audio/click4.ogg" id="6_1lx4f"]
+[ext_resource type="AudioStream" uid="uid://c6i2kylcal4ps" path="res://udemy_roguelike/assets/audio/click5.ogg" id="7_w7xv4"]
+
+[node name="SoundButton" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Sound Button"
+script = ExtResource("1_jmii1")
+
+[node name="RandomStreamPlayerComponent" parent="." instance=ExtResource("2_1l781")]
+streams = Array[AudioStream]([ExtResource("3_kappv"), ExtResource("4_a52d7"), ExtResource("5_qf7sw"), ExtResource("6_1lx4f"), ExtResource("7_w7xv4")])
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

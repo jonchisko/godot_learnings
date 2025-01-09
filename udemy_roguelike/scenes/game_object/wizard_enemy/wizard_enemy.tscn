@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://3sb5sjm4or5t"]
+[gd_scene load_steps=22 format=3 uid="uid://3sb5sjm4or5t"]
 
 [ext_resource type="Texture2D" uid="uid://b1xgf2jbab4bn" path="res://udemy_roguelike/scenes/game_object/wizard_enemy/wizard_enemy.png" id="1_6clqo"]
 [ext_resource type="PackedScene" uid="uid://dwmgwbjdr16qk" path="res://udemy_roguelike/scenes/component/health_component.tscn" id="1_7e7gj"]
@@ -9,6 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://d24tey5tqbllr" path="res://udemy_roguelike/scenes/component/hurt_box_component.tscn" id="4_ku6qf"]
 [ext_resource type="PackedScene" uid="uid://cuegkaheyks57" path="res://udemy_roguelike/scenes/component/hit_flash_component.tscn" id="5_iby2n"]
 [ext_resource type="Shader" path="res://udemy_roguelike/scenes/component/hit_flash_component.gdshader" id="6_ofqqu"]
+[ext_resource type="PackedScene" uid="uid://lw36pnrg351k" path="res://udemy_roguelike/scenes/component/random_stream_player_2d_component.tscn" id="8_0046l"]
+[ext_resource type="AudioStream" uid="uid://cnnr68rvxsq2y" path="res://udemy_roguelike/assets/audio/footstep_carpet_000.ogg" id="9_ui063"]
+[ext_resource type="AudioStream" uid="uid://c13tutnjkxmx7" path="res://udemy_roguelike/assets/audio/footstep_carpet_001.ogg" id="10_j27lw"]
+[ext_resource type="AudioStream" uid="uid://cyhkcoj6qbu3l" path="res://udemy_roguelike/assets/audio/footstep_carpet_002.ogg" id="11_psv5n"]
+[ext_resource type="AudioStream" uid="uid://dk56tl86huav3" path="res://udemy_roguelike/assets/audio/footstep_carpet_003.ogg" id="12_2t7nt"]
+[ext_resource type="AudioStream" uid="uid://b0toh7xiu7noy" path="res://udemy_roguelike/assets/audio/footstep_carpet_004.ogg" id="13_78lnp"]
 
 [sub_resource type="Animation" id="Animation_qba2t"]
 length = 0.001
@@ -155,6 +161,10 @@ hit_flash_material = SubResource("ShaderMaterial_f7b4d")
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
 
+[node name="HitRandomAudioPlayerComponent" parent="." instance=ExtResource("8_0046l")]
+max_distance = 250.0
+streams = Array[AudioStream]([ExtResource("9_ui063"), ExtResource("10_j27lw"), ExtResource("11_psv5n"), ExtResource("12_2t7nt"), ExtResource("13_78lnp")])
+
 [node name="Visuals" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Visuals"]
@@ -171,3 +181,5 @@ shape = SubResource("CircleShape2D_w8evd")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_h1pr0")
+
+[connection signal="hit" from="HurtBoxComponent" to="." method="_on_hurt_box_component_hit"]

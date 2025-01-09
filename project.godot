@@ -17,8 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Music="*res://brackey_game/scenes/music.tscn"
 GameEvents="*res://udemy_roguelike/scenes/autoload/game_events.tscn"
+MusicStreamPlayer="*res://udemy_roguelike/scenes/autoload/music_stream_player.tscn"
 
 [display]
 

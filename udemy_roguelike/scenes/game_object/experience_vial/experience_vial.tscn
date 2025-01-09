@@ -1,13 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://cnj08465sdfmi"]
+[gd_scene load_steps=10 format=3 uid="uid://cnj08465sdfmi"]
 
 [ext_resource type="Texture2D" uid="uid://qiqn70k101g7" path="res://udemy_roguelike/scenes/game_object/experience_vial/experience_vial.png" id="1_eatmo"]
 [ext_resource type="Script" path="res://udemy_roguelike/scenes/game_object/experience_vial/experience_vial.gd" id="1_yhe8d"]
+[ext_resource type="PackedScene" uid="uid://lw36pnrg351k" path="res://udemy_roguelike/scenes/component/random_stream_player_2d_component.tscn" id="2_0o7l1"]
+[ext_resource type="AudioStream" uid="uid://bdc4m1ure5de5" path="res://udemy_roguelike/assets/audio/impactGeneric_light_000.ogg" id="3_54bu2"]
+[ext_resource type="AudioStream" uid="uid://bxqir42adpsyo" path="res://udemy_roguelike/assets/audio/impactGeneric_light_001.ogg" id="4_xfiss"]
+[ext_resource type="AudioStream" uid="uid://cfb0kpv17edxy" path="res://udemy_roguelike/assets/audio/impactGeneric_light_002.ogg" id="5_fynjp"]
+[ext_resource type="AudioStream" uid="uid://8q2ywomuecyx" path="res://udemy_roguelike/assets/audio/impactGeneric_light_003.ogg" id="6_7ve5b"]
+[ext_resource type="AudioStream" uid="uid://t5g0tgeimkt5" path="res://udemy_roguelike/assets/audio/impactGeneric_light_004.ogg" id="7_klbew"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u05oa"]
 radius = 13.0
 
 [node name="ExperienceVial" type="Node2D"]
 script = ExtResource("1_yhe8d")
+
+[node name="RandomStreamPlayer2DComponent" parent="." instance=ExtResource("2_0o7l1")]
+streams = Array[AudioStream]([ExtResource("3_54bu2"), ExtResource("4_xfiss"), ExtResource("5_fynjp"), ExtResource("6_7ve5b"), ExtResource("7_klbew")])
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0

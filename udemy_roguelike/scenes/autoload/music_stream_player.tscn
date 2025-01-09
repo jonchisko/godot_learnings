@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dehee1swdq0f7"]
+
+[ext_resource type="AudioStream" uid="uid://b45dfxvf71ch1" path="res://udemy_roguelike/assets/audio/Hear+What+They+Say.mp3" id="1_gsudv"]
+[ext_resource type="Script" path="res://udemy_roguelike/scenes/autoload/music_stream_player.gd" id="2_mj55d"]
+
+[node name="MusicStreamPlayer" type="AudioStreamPlayer"]
+process_mode = 3
+stream = ExtResource("1_gsudv")
+volume_db = -14.0
+autoplay = true
+bus = &"Music"
+script = ExtResource("2_mj55d")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+
+[connection signal="finished" from="." to="." method="_on_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

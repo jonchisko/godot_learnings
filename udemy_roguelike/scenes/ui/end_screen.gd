@@ -19,11 +19,18 @@ func _ready():
 func set_defeat():
 	self.end_screen_title.text = "Defeat"
 	self.end_screen_description.text = "You lost!"
-	
+	self.play_jingle(true)
 
 func set_victory():
 	self.end_screen_title.text = "Victory"
 	self.end_screen_description.text = "You won!"
+	self.play_jingle()
+
+func play_jingle(defeat: bool = false):
+	if defeat:
+		$DefeatStreamPlayer2.play()
+	else:
+		$VictoryStreamPlayer.play()
 
 
 func _on_restart_button_pressed():

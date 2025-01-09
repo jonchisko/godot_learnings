@@ -29,3 +29,7 @@ func _process(delta):
 
 func set_is_moving(moving: bool):
 	self.is_moving = moving
+
+
+func _on_hurt_box_component_hit() -> void:
+	$HitRandomAudioPlayerComponent.play_random()

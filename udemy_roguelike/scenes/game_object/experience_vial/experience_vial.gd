@@ -40,4 +40,4 @@ func _on_area_entered(other: Area2D) -> void:
 	tween.chain()
 	tween.tween_callback(collect)
 	
-	
+	$RandomStreamPlayer2DComponent.play_random()
