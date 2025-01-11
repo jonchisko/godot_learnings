@@ -1,14 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://deru416ovh5f4"]
+[gd_scene load_steps=2 format=3 uid="uid://deru416ovh5f4"]
 
 [ext_resource type="Script" path="res://udemy_roguelike/scenes/ui/experience_bar.gd" id="1_8yyf6"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mxps"]
-bg_color = Color(0.1131, 0.731235, 0.87, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.247059, 0.14902, 0.192157, 1)
 
 [node name="ExperienceBar" type="CanvasLayer"]
 script = ExtResource("1_8yyf6")
@@ -27,7 +19,6 @@ custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 size_flags_vertical = 8
 mouse_filter = 2
-theme_override_styles/fill = SubResource("StyleBoxFlat_7mxps")
 max_value = 1.0
 value = 0.5
 show_percentage = false

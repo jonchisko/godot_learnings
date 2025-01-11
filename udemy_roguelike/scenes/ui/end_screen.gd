@@ -33,7 +33,7 @@ func play_jingle(defeat: bool = false):
 		$VictoryStreamPlayer.play()
 
 
-func _on_restart_button_pressed():
+func _on_continue_button_pressed():
 	ScreenTransition.transition()
 	await ScreenTransition.transition_halfway
 	
@@ -42,4 +42,8 @@ func _on_restart_button_pressed():
 
 
 func _on_quit_button_pressed():
-	get_tree().quit()
+	ScreenTransition.transition()
+	await ScreenTransition.transition_halfway
+	
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://udemy_roguelike/scenes/ui/main_menu.tscn")

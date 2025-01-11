@@ -32,7 +32,7 @@ func pick_card():
 
 func set_ability_upgrade(upgrade: AbilityUpgrade):
 	self.name_label.text = upgrade.name
-	self.description_label = upgrade.description 
+	self.description_label.text = upgrade.description 
 
 
 func _on_gui_input(event: InputEvent):
