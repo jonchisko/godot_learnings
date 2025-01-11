@@ -1,11 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://bi85xefteln3o"]
+[gd_scene load_steps=5 format=3 uid="uid://bi85xefteln3o"]
 
 [ext_resource type="Script" path="res://udemy_roguelike/scenes/ui/main_menu.gd" id="1_3dfu8"]
 [ext_resource type="TileSet" uid="uid://ccv70tjpvvlaf" path="res://udemy_roguelike/resources/tileset.tres" id="1_8s0q7"]
+[ext_resource type="PackedScene" uid="uid://c71b2cxah1ldj" path="res://udemy_roguelike/scenes/ui/vignette.tscn" id="2_5lq58"]
 [ext_resource type="PackedScene" uid="uid://b5bt0yoavx7k5" path="res://udemy_roguelike/scenes/ui/sound_button.tscn" id="2_10efb"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_3dfu8")
+
+[node name="Vignette" parent="." instance=ExtResource("2_5lq58")]
+layer = 2
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_8s0q7")
@@ -38,6 +42,7 @@ size_flags_vertical = 4
 
 [node name="Title" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
 theme_override_font_sizes/font_size = 32
 text = "The Arena"
 
