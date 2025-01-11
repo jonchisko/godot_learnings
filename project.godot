@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameEvents="*res://udemy_roguelike/scenes/autoload/game_events.tscn"
 MusicStreamPlayer="*res://udemy_roguelike/scenes/autoload/music_stream_player.tscn"
+ScreenTransition="*res://udemy_roguelike/scenes/autoload/screen_transition.tscn"
 
 [display]
 

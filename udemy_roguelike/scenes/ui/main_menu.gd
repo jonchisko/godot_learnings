@@ -10,10 +10,16 @@ func _ready() -> void:
 
 
 func _on_play_pressed():
+	ScreenTransition.transition()
+	await ScreenTransition.transition_halfway
+	
 	self.get_tree().change_scene_to_file("res://udemy_roguelike/scenes/main/main.tscn")
 	
 
 func _on_options_pressed():
+	ScreenTransition.transition()
+	await ScreenTransition.transition_halfway
+	
 	var options_instance = self.options_scene.instantiate()
 	self.add_child(options_instance)
 	options_instance.back_pressed.connect(self._on_options_closed.bind(options_instance))

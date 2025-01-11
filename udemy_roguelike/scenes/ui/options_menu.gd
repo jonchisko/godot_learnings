@@ -47,4 +47,7 @@ func _on_music_slider_value_changed(value: float) -> void:
 
 
 func _on_back_button_pressed() -> void:
+	ScreenTransition.transition()
+	await ScreenTransition.transition_halfway
+	
 	self.back_pressed.emit()

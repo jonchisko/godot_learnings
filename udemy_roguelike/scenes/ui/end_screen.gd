@@ -34,6 +34,9 @@ func play_jingle(defeat: bool = false):
 
 
 func _on_restart_button_pressed():
+	ScreenTransition.transition()
+	await ScreenTransition.transition_halfway
+	
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://udemy_roguelike/scenes/main/main.tscn")
 
